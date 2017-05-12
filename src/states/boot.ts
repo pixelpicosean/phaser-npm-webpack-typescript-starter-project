@@ -5,7 +5,7 @@ import { GameWidth, GameHeight, ScaleMode, MultiTouchSupport } from '../config';
 export default class Boot extends Phaser.State {
   public preload(): void {
     // Load any assets you need for your preloader state here.
-    this.game.load.atlasJSONHash(Assets.Atlases.AtlasesPreloadSpritesHash.getName(), Assets.Atlases.AtlasesPreloadSpritesHash.getPNG(), Assets.Atlases.AtlasesPreloadSpritesHash.getJSONHash());
+    this.game.load.atlasJSONHash(Assets.Atlases.PreloadSprites.getName(), Assets.Atlases.PreloadSprites.getPNG(), Assets.Atlases.PreloadSprites.getJSONHash());
   }
 
   public create(): void {
