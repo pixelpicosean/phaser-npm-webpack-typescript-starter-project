@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "server": "webpack-dev-server --config webpack.dev.config.js --open",
-    "dist": "echo-cli 'Building DIST ...' && npm run webpack:dist && echo-cli 'Build Complete ✔'",
+    "dist": "echo-cli 'Building DIST ...' && webpack --config webpack.dist.config.js --progress --colors && echo-cli 'Build Complete ✔'",
     "assets": "node ./scripts/generate_assets_data.js",
     "assets:dev": "node ./scripts/generate_assets_data.js --dev"
   },
