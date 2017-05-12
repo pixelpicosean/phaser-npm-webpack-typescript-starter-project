@@ -1,10 +1,10 @@
 /* AUTO GENERATED FILE. DO NOT MODIFY. YOU WILL LOSE YOUR CHANGES ON BUILD. */
 
 export namespace Images {
-    export class ImagesBackgroundTemplate {
-        static getName(): string { return 'background_template'; }
+    export class FontsFontXml {
+        static getName(): string { return 'font_xml'; }
 
-        static getPNG(): string { return require('assets/images/background_template.png'); }
+        static getPNG(): string { return require('assets/fonts/font_xml.png'); }
     }
 }
 
@@ -22,19 +22,6 @@ export namespace Spritesheets {
 }
 
 export namespace Atlases {
-    enum AtlasesPreloadSpritesArrayFrames {
-        PreloadBar = <any>'preload_bar.png',
-        PreloadFrame = <any>'preload_frame.png',
-    }
-    export class AtlasesPreloadSpritesArray {
-        static getName(): string { return 'preload_sprites_array'; }
-
-        static getJSONArray(): string { return require('assets/atlases/preload_sprites_array.json'); }
-
-        static getPNG(): string { return require('assets/atlases/preload_sprites_array.png'); }
-
-        static Frames = AtlasesPreloadSpritesArrayFrames;
-    }
     enum AtlasesPreloadSpritesHashFrames {
         PreloadBar = <any>'preload_bar.png',
         PreloadFrame = <any>'preload_frame.png',
@@ -47,19 +34,6 @@ export namespace Atlases {
         static getPNG(): string { return require('assets/atlases/preload_sprites_hash.png'); }
 
         static Frames = AtlasesPreloadSpritesHashFrames;
-    }
-    enum AtlasesPreloadSpritesXmlFrames {
-        PreloadBar = <any>'preload_bar.png',
-        PreloadFrame = <any>'preload_frame.png',
-    }
-    export class AtlasesPreloadSpritesXml {
-        static getName(): string { return 'preload_sprites_xml'; }
-
-        static getPNG(): string { return require('assets/atlases/preload_sprites_xml.png'); }
-
-        static getXML(): string { return require('assets/atlases/preload_sprites_xml.xml'); }
-
-        static Frames = AtlasesPreloadSpritesXmlFrames;
     }
 }
 
@@ -100,21 +74,11 @@ export namespace Audiosprites {
 }
 
 export namespace GoogleWebFonts {
-    export const Barrio: string = 'Barrio';
+    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
 }
 
 export namespace CustomWebFonts {
-    export class Fonts2DumbWebfont {
-        static getName(): string { return '2Dumb-webfont'; }
-
-        static getFamily(): string { return '2dumbregular'; }
-
-        static getCSS(): string { return require('!file-loader?name=assets/fonts/[name].[ext]!assets/fonts/2Dumb-webfont.css'); }
-        static getEOT(): string { return require('!file-loader?name=assets/fonts/[name].[ext]!assets/fonts/2Dumb-webfont.eot'); }
-        static getSVG(): string { return require('!file-loader?name=assets/fonts/[name].[ext]!assets/fonts/2Dumb-webfont.svg'); }
-        static getTTF(): string { return require('!file-loader?name=assets/fonts/[name].[ext]!assets/fonts/2Dumb-webfont.ttf'); }
-        static getWOFF(): string { return require('!file-loader?name=assets/fonts/[name].[ext]!assets/fonts/2Dumb-webfont.woff'); }
-    }
+    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
 }
 
 export namespace BitmapFonts {
@@ -123,12 +87,6 @@ export namespace BitmapFonts {
 
         static getFNT(): string { return require('assets/fonts/font_fnt.fnt'); }
         static getPNG(): string { return require('assets/fonts/font_fnt.png'); }
-    }
-    export class FontsFontXml {
-        static getName(): string { return 'font_xml'; }
-
-        static getPNG(): string { return require('assets/fonts/font_xml.png'); }
-        static getXML(): string { return require('assets/fonts/font_xml.xml'); }
     }
 }
 
