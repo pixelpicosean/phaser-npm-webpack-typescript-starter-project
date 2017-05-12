@@ -141,14 +141,6 @@ export class Loader {
     }
   }
 
-  private static loadXML() {
-    for (let xml in Assets.XML) {
-      if (!this.game.cache.checkXMLKey(Assets.XML[xml].getName())) {
-        this.game.load.xml(Assets.XML[xml].getName(), Assets.XML[xml].getXML(), true);
-      }
-    }
-  }
-
   private static loadText() {
     for (let text in Assets.Text) {
       if (!this.game.cache.checkTextKey(Assets.Text[text].getName())) {
@@ -185,7 +177,6 @@ export class Loader {
     this.loadAudiosprites();
     this.loadBitmapFonts();
     this.loadJSON();
-    this.loadXML();
     this.loadText();
     this.loadScripts();
     this.loadShaders();
