@@ -5,17 +5,20 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = {
-    entry: path.join(__dirname, 'src/app.ts'),
+    entry: {
+        'game': path.join(__dirname, 'src/app.ts'),
+        'vendor': [
+            path.join(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
+            path.join(__dirname, 'node_modules/phaser-ce/build/custom/phaser-arcade-physics.js'),
+        ],
+    },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'game.min.js'
+        filename: '[name].[chunkhash].js'
     },
     resolve: {
         extensions: ['.ts', '.js'],
         alias: {
-            pixi: path.join(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
-            phaser: path.join(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js'),
-            p2: path.join(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
             assets: path.join(__dirname, 'assets/')
         }
     },
@@ -44,27 +47,17 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'templates/index.ejs')
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+        }),
     ],
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        compress: true,
-        port: 4000,
-        inline: true,
-        watchOptions: {
-            aggregateTimeout: 50,
-            poll: true,
-            ignored: /node_modules/
-        }
-    },
     module: {
         rules: [
             { test: /\.ts$/, enforce: 'pre', loader: 'tslint-loader' },
-
             { test: /assets(\/|\\)/, loader: 'file-loader?name=assets/[hash].[ext]' },
             { test: /pixi\.js$/, loader: 'expose-loader?PIXI' },
-            { test: /phaser-split\.js$/, loader: 'expose-loader?Phaser' },
-            { test: /p2\.js$/, loader: 'expose-loader?p2' },
+            { test: /phaser-arcade-physics\.js$/, loader: 'expose-loader?Phaser' },
             { test: /\.ts$/, loader: 'ts-loader', exclude: '/node_modules/' }
         ]
     }

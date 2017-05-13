@@ -1,7 +1,3 @@
-import 'p2';
-import 'pixi';
-import 'phaser';
-
 import * as WebFontLoader from 'webfontloader';
 
 import Boot from './states/Boot';
