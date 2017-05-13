@@ -3,6 +3,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var WebpackShellPlugin = require('webpack-shell-plugin');
+var title = JSON.parse(require('fs').readFileSync('package.json')).productName;
 
 module.exports = {
     entry: {
@@ -46,6 +47,7 @@ module.exports = {
             screw_ie8: true
         }),
         new HtmlWebpackPlugin({
+            title: title,
             template: path.join(__dirname, 'templates/index.ejs')
         }),
         new webpack.optimize.CommonsChunkPlugin({
