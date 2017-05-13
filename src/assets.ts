@@ -34,39 +34,11 @@ export namespace Atlases {
 }
 
 export namespace Audio {
-  export class Music {
-    static getName(): string { return 'music'; }
-
-    static getAC3(): string { return require('assets/audio/music.ac3'); }
-    static getM4A(): string { return require('assets/audio/music.m4a'); }
-    static getMP3(): string { return require('assets/audio/music.mp3'); }
-    static getOGG(): string { return require('assets/audio/music.ogg'); }
-  }
+  class Empty {}
 }
 
 export namespace Audiosprites {
-  enum SfxSprites {
-    Laser1 = <any>'laser1',
-    Laser2 = <any>'laser2',
-    Laser3 = <any>'laser3',
-    Laser4 = <any>'laser4',
-    Laser5 = <any>'laser5',
-    Laser6 = <any>'laser6',
-    Laser7 = <any>'laser7',
-    Laser8 = <any>'laser8',
-    Laser9 = <any>'laser9',
-  }
-  export class Sfx {
-    static getName(): string { return 'sfx'; }
-
-    static getAC3(): string { return require('assets/audiosprites/sfx.ac3'); }
-    static getJSON(): string { return require('assets/audiosprites/sfx.json'); }
-    static getM4A(): string { return require('assets/audiosprites/sfx.m4a'); }
-    static getMP3(): string { return require('assets/audiosprites/sfx.mp3'); }
-    static getOGG(): string { return require('assets/audiosprites/sfx.ogg'); }
-
-    static Sprites = SfxSprites;
-  }
+  class Empty {}
 }
 
 export namespace GoogleWebFonts {
