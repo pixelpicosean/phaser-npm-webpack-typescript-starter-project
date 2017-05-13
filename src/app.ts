@@ -1,13 +1,15 @@
 import * as WebFontLoader from 'webfontloader';
 
+import { ScreenMetrics, ScreenUtils } from './utils/misc';
+import { CustomWebFonts } from './assets';
+import { GameWidth, GameHeight, Resolution, ScaleMode } from './config';
+
+// States
 import Boot from './states/Boot';
 import Preloader from './states/Preloader';
 import Title from './states/Title';
-import * as Utils from './utils/utils';
-import * as Assets from './assets';
-import { GameWidth, GameHeight, Resolution, ScaleMode } from './config';
 
-class App extends Phaser.Game {
+class Game extends Phaser.Game {
   constructor(config: Phaser.IGameConfig) {
     super(config);
 
@@ -24,7 +26,7 @@ function startApp(): void {
   let height = GameHeight;
 
   if (ScaleMode === 'USER_SCALE') {
-    let metrics: Utils.ScreenMetrics = Utils.ScreenUtils.calculateScreenMetrics(GameWidth, GameHeight);
+    let metrics: ScreenMetrics = ScreenUtils.calculateScreenMetrics(GameWidth, GameHeight);
     width = metrics.gameWidth;
     height = metrics.gameHeight;
   }
@@ -37,7 +39,7 @@ function startApp(): void {
     resolution: Resolution,
   };
 
-  new App(gameConfig);
+  new Game(gameConfig);
 }
 
 window.onload = () => {
@@ -52,7 +54,7 @@ window.onload = () => {
     };
   }
 
-  if (Object.keys(Assets.CustomWebFonts).length > 0) {
+  if (Object.keys(CustomWebFonts).length > 0) {
     webFontLoaderOptions = (webFontLoaderOptions || {});
 
     webFontLoaderOptions.custom = {
@@ -60,9 +62,9 @@ window.onload = () => {
       urls: []
     };
 
-    for (let font in Assets.CustomWebFonts) {
-      webFontLoaderOptions.custom.families.push(Assets.CustomWebFonts[font].getFamily());
-      webFontLoaderOptions.custom.urls.push(Assets.CustomWebFonts[font].getCSS());
+    for (let font in CustomWebFonts) {
+      webFontLoaderOptions.custom.families.push(CustomWebFonts[font].getFamily());
+      webFontLoaderOptions.custom.urls.push(CustomWebFonts[font].getCSS());
     }
   }
 
