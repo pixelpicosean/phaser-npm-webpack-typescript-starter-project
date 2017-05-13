@@ -106,7 +106,7 @@ export class ScreenUtils {
 export class StringUtils {
   public static toCamelCase(str: string) {
     return str.replace(/[^A-Za-z0-9]/g, ' ').replace(/^\w|[A-Z]|\b\w|\s+/g, function (match, index) {
-      if (+match === 0 || match === '-' || match === '.') {
+      if ((+match === 0 && match !== '0') || match === '-' || match === '.') {
         return '';
       }
       return (index === 0 ? match.toLowerCase() : match.toUpperCase());
